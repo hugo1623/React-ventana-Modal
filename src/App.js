@@ -1,19 +1,25 @@
-import React from 'react';
-import './index.css';
+import React,{useState} from 'react';
 import Modal from './componentes/Modal';
 import styled from 'styled-components';
 
 const App = () => {
+	const [estadoModal1, cambiarEstadoModal1] = useState(false);
 	return (
 		<div>
 			<ContenedorBotones>
-				<Boton>Modal 1</Boton>
+				<Boton onClick={() => cambiarEstadoModal1(!estadoModal1)}>Modal 1</Boton>
 			</ContenedorBotones>
-			<Modal>
+			<Modal
+			estado= {estadoModal1}
+			cambiarEstado= {cambiarEstadoModal1}
+			titulo="Hola!"
+			mostrarHeader={true}
+			
+			>
 				<Contenido>
 					<h1> Ventana Modal </h1>
-					<p> Reutilizable y con opciones de personalizaación</p>
-					<Boton></Boton>
+					<p> Reutilizable y con opciones de personalizaación.</p>
+					<Boton  onClick={() => cambiarEstadoModal1(!estadoModal1)}>Aceptar</Boton>
 				</Contenido>
 
 			</Modal>
